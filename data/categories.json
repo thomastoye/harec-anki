@@ -1,0 +1,121 @@
+[
+  {
+    "CategoriePK": "1",
+    "CategorieName": "Electricité",
+    "CategorieFromChapter": "101",
+    "CategorieToChapter": "101",
+    "CategorieNumberOfQuestions": "5"
+  },
+  {
+    "CategoriePK": "2",
+    "CategorieName": "Composants",
+    "CategorieFromChapter": "102",
+    "CategorieToChapter": "102",
+    "CategorieNumberOfQuestions": "3"
+  },
+  {
+    "CategoriePK": "3",
+    "CategorieName": "Circuits",
+    "CategorieFromChapter": "103",
+    "CategorieToChapter": "103",
+    "CategorieNumberOfQuestions": "3"
+  },
+  {
+    "CategoriePK": "4",
+    "CategorieName": "Récepteurs",
+    "CategorieFromChapter": "104",
+    "CategorieToChapter": "104",
+    "CategorieNumberOfQuestions": "2"
+  },
+  {
+    "CategoriePK": "5",
+    "CategorieName": "Emetteurs",
+    "CategorieFromChapter": "105",
+    "CategorieToChapter": "105",
+    "CategorieNumberOfQuestions": "2"
+  },
+  {
+    "CategoriePK": "6",
+    "CategorieName": "Antennes lignes",
+    "CategorieFromChapter": "106",
+    "CategorieToChapter": "106",
+    "CategorieNumberOfQuestions": "3"
+  },
+  {
+    "CategoriePK": "7",
+    "CategorieName": "Propagation",
+    "CategorieFromChapter": "107",
+    "CategorieToChapter": "107",
+    "CategorieNumberOfQuestions": "2"
+  },
+  {
+    "CategoriePK": "8",
+    "CategorieName": "Mesures",
+    "CategorieFromChapter": "108",
+    "CategorieToChapter": "108",
+    "CategorieNumberOfQuestions": "2"
+  },
+  {
+    "CategoriePK": "9",
+    "CategorieName": "EMC/Sécurité",
+    "CategorieFromChapter": "109",
+    "CategorieToChapter": "109",
+    "CategorieNumberOfQuestions": "1"
+  },
+  {
+    "CategoriePK": "10",
+    "CategorieName": "Alphabet",
+    "CategorieFromChapter": "201",
+    "CategorieToChapter": "201",
+    "CategorieNumberOfQuestions": "1"
+  },
+  {
+    "CategoriePK": "11",
+    "CategorieName": "Code Q",
+    "CategorieFromChapter": "202",
+    "CategorieToChapter": "202",
+    "CategorieNumberOfQuestions": "1"
+  },
+  {
+    "CategoriePK": "12",
+    "CategorieName": "Call sign",
+    "CategorieFromChapter": "203",
+    "CategorieToChapter": "203",
+    "CategorieNumberOfQuestions": "1"
+  },
+  {
+    "CategoriePK": "13",
+    "CategorieName": "CEPT/UIT",
+    "CategorieFromChapter": "301",
+    "CategorieToChapter": "301",
+    "CategorieNumberOfQuestions": "1"
+  },
+  {
+    "CategoriePK": "14",
+    "CategorieName": "Loi",
+    "CategorieFromChapter": "302",
+    "CategorieToChapter": "302",
+    "CategorieNumberOfQuestions": "1"
+  },
+  {
+    "CategoriePK": "15",
+    "CategorieName": "AR",
+    "CategorieFromChapter": "303",
+    "CategorieToChapter": "303",
+    "CategorieNumberOfQuestions": "2"
+  },
+  {
+    "CategoriePK": "16",
+    "CategorieName": "AM",
+    "CategorieFromChapter": "304",
+    "CategorieToChapter": "304",
+    "CategorieNumberOfQuestions": "2"
+  },
+  {
+    "CategoriePK": "17",
+    "CategorieName": "Fréquences",
+    "CategorieFromChapter": "305",
+    "CategorieToChapter": "305",
+    "CategorieNumberOfQuestions": "1"
+  }
+]
