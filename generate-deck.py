@@ -2,12 +2,22 @@
 
 import json
 import genanki
+from os import listdir
 
-my_model = genanki.Model(
+
+class CustomNote(genanki.Note):
+    @property
+    def guid(self):
+        return genanki.guid_for(self.fields[0])
+
+
+model = genanki.Model(
     1343037055,
     "Simple Model",
     fields=[
+        {"name": "QuestionNumber"},
         {"name": "Question"},
+        {"name": "OptionalImage"},
         {"name": "OptionA"},
         {"name": "OptionB"},
         {"name": "OptionC"},
@@ -17,28 +27,38 @@ my_model = genanki.Model(
     templates=[
         {
             "name": "Card 1",
-            "qfmt": "{{Question}}<br><br><b>A:</b> {{OptionA}}<br><b>B:</b> {{OptionB}}<br><b>C:</b> {{OptionC}}<br><b>D:</b> {{OptionD}}<br>",
+            "qfmt": "{{Question}}<br><br>{{OptionalImage}}<br><b>A:</b> {{OptionA}}<br><b>B:</b> {{OptionB}}<br><b>C:</b> {{OptionC}}<br><b>D:</b> {{OptionD}}<br>",
             "afmt": '<hr id="answer">{{Answer}}',
         },
     ],
 )
 
+
 def create_note_for_question(question):
-    if question['QuestionCorrectAnswer'] == '':
+    if question["QuestionCorrectAnswer"] == "":
         return None
 
-    correct_answer_long = question['QuestionAnswer' + question['QuestionCorrectAnswer'] + 'NL']
+    optional_image = ""
 
-    return genanki.Note(
-        model=my_model,
+    if question["QuestionDrawing"] == "True":
+        optional_image = f"""<img src="{question['QuestionNr']}.png">"""
+
+    correct_answer_long = question[
+        "QuestionAnswer" + question["QuestionCorrectAnswer"] + "NL"
+    ]
+
+    return CustomNote(
+        model=model,
         fields=[
-            question['QuestionTextNL'],
-            question['QuestionAnswerANL'],
-            question['QuestionAnswerBNL'],
-            question['QuestionAnswerCNL'],
-            question['QuestionAnswerDNL'],
-            '<b>' + question['QuestionCorrectAnswer'] + '</b>: ' + correct_answer_long
-        ]
+            question["QuestionNr"],
+            question["QuestionTextNL"],
+            optional_image,
+            question["QuestionAnswerANL"],
+            question["QuestionAnswerBNL"],
+            question["QuestionAnswerCNL"],
+            question["QuestionAnswerDNL"],
+            "<b>" + question["QuestionCorrectAnswer"] + "</b>: " + correct_answer_long,
+        ],
     )
 
 
@@ -49,7 +69,10 @@ with open("./data/categories.json", "r") as categories_file, open(
     questions = json.loads(questions_file.read())
 
 decks = {
-    category['CategorieFromChapter']: genanki.Deck(2068240807 + int(category['CategorieFromChapter']), "HAREC: " + category['CategorieNameNL'])
+    category["CategorieFromChapter"]: genanki.Deck(
+        2068240807 + int(category["CategorieFromChapter"]),
+        "HAREC::" + category["CategorieNameNL"],
+    )
     for category in categories
 }
 
@@ -57,6 +80,9 @@ for question in questions:
     note = create_note_for_question(question)
 
     if note != None:
-        decks[question['QuestionChapter']].add_note(note)
+        decks[question["QuestionChapter"]].add_note(note)
 
-genanki.Package(decks.values()).write_to_file('deck.apkg')
+package = genanki.Package(decks.values())
+package.media_files = [f"img/{img}" for img in listdir("img")]
+
+package.write_to_file("deck.apkg")
