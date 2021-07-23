@@ -28,7 +28,7 @@ model = genanki.Model(
         {
             "name": "Card 1",
             "qfmt": "{{Question}}<br><br>{{OptionalImage}}<br><b>A:</b> {{OptionA}}<br><b>B:</b> {{OptionB}}<br><b>C:</b> {{OptionC}}<br><b>D:</b> {{OptionD}}<br>",
-            "afmt": '<hr id="answer">{{Answer}}',
+            "afmt": '{{Question}}<br><br>{{OptionalImage}}<br><b>A:</b> {{OptionA}}<br><b>B:</b> {{OptionB}}<br><b>C:</b> {{OptionC}}<br><b>D:</b> {{OptionD}}<br><br><hr id="answer"><br><br>{{Answer}}',
         },
     ],
 )
